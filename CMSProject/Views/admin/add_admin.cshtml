@@ -1,0 +1,77 @@
+﻿@model CMSProject.Models.AdminTB
+
+@{
+    Layout = null;
+}
+
+@RenderPage("header.cshtml");
+<!-- Page wrapper  -->
+<div class="page-wrapper">
+    <!-- Bread crumb -->
+    <div class="row page-titles">
+        <div class="col-md-5 align-self-center">
+            <h3 class="text-primary">Add Admin</h3>
+        </div>
+        <div class="col-md-7 align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Admin</a></li>
+                <li class="breadcrumb-item active">Add Admin</li>
+            </ol>
+        </div>
+    </div>
+    <!-- End Bread crumb -->
+    <!-- Container fluid  -->
+    <div class="container-fluid">
+        <!-- Start Page Content -->
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-validation">
+                            @using (Html.BeginForm("add_admin", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-username">Name :<span class="text-danger">*</span></label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(addadmin => addadmin.Admin_name, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-email">Email :<span class="text-danger">*</span></label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(addadmin => addadmin.Admin_email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span></label>
+                                    <div class="col-lg-6">
+                                        @Html.TextBoxFor(addadmin => addadmin.Admin_password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-suggestions">Upload Profile : <span class="text-danger">*</span></label>
+                                    <div class="col-lg-6">
+                                        <input type="file" name="Admin_image">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-8 ml-auto">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+</div>
+<!-- End Page wrapper  -->
+    </div>
+<!-- End Wrapper -->
+@RenderPage("footer.cshtml");
+
+

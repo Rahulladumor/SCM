@@ -1,0 +1,1006 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CMSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminTB">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Admin_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Admin_email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Admin_password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Admin_image" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttendanceTB">
+          <Key>
+            <PropertyRef Name="Attendance_id" />
+          </Key>
+          <Property Name="Attendance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_id" Type="int" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Attendance_status" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Attendance_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClassTB">
+          <Key>
+            <PropertyRef Name="Class_id" />
+          </Key>
+          <Property Name="Class_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Class_number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CourseTB">
+          <Key>
+            <PropertyRef Name="Course_id" />
+          </Key>
+          <Property Name="Course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Course_fees" Type="int" Nullable="false" />
+          <Property Name="Course_duration" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExamTB">
+          <Key>
+            <PropertyRef Name="Exam_id" />
+          </Key>
+          <Property Name="Exam_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Subject_id" Type="int" Nullable="false" />
+          <Property Name="Exam_date" Type="date" Nullable="false" />
+          <Property Name="Exam_comment" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FeesdetailsTB">
+          <Key>
+            <PropertyRef Name="Fees_id" />
+          </Key>
+          <Property Name="Fees_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_id" Type="int" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Obtained_fees" Type="int" Nullable="false" />
+          <Property Name="Total_fees" Type="int" Nullable="false" />
+          <Property Name="Remaining_fees" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GradeTB">
+          <Key>
+            <PropertyRef Name="Grade_id" />
+          </Key>
+          <Property Name="Grade_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Grade_name" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Grade_from" Type="int" Nullable="false" />
+          <Property Name="Grade_upto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarksTB">
+          <Key>
+            <PropertyRef Name="Marks_id" />
+          </Key>
+          <Property Name="Marks_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_id" Type="int" Nullable="false" />
+          <Property Name="Subject_id" Type="int" Nullable="false" />
+          <Property Name="Exam_id" Type="int" Nullable="false" />
+          <Property Name="Total_marks" Type="int" Nullable="false" />
+          <Property Name="Obtained_marks" Type="int" Nullable="false" />
+          <Property Name="Attendance_status" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoticeTB">
+          <Key>
+            <PropertyRef Name="Notice_id" />
+          </Key>
+          <Property Name="Notice_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Notice_title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notice_description" Type="text" Nullable="false" />
+          <Property Name="Notice_createdate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Notice_expiredate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentTB">
+          <Key>
+            <PropertyRef Name="Payment_id" />
+          </Key>
+          <Property Name="Payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_id" Type="int" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Payment_amount" Type="int" Nullable="false" />
+          <Property Name="Payment_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentTB">
+          <Key>
+            <PropertyRef Name="Student_id" />
+          </Key>
+          <Property Name="Student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Class_id" Type="int" Nullable="false" />
+          <Property Name="Student_surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_fathername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_birthdate" Type="date" Nullable="false" />
+          <Property Name="Student_email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Student_mobile" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Student_joiningdate" Type="date" Nullable="false" />
+          <Property Name="Student_gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Student_address" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubjectTB">
+          <Key>
+            <PropertyRef Name="Subject_id" />
+          </Key>
+          <Property Name="Subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Subject_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeacherTB">
+          <Key>
+            <PropertyRef Name="Teacher_id" />
+          </Key>
+          <Property Name="Teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject_id" Type="int" Nullable="false" />
+          <Property Name="Teacher_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Teacher_email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Teacher_mobile" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Teacher_gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Teacher_birthdate" Type="date" Nullable="false" />
+          <Property Name="Teacher_joiningdate" Type="date" Nullable="false" />
+          <Property Name="Teacher_address" Type="text" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AttendanceTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="AttendanceTB" Type="Self.AttendanceTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="AttendanceTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AttendanceTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="AttendanceTB" Type="Self.AttendanceTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="AttendanceTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExamTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="ExamTB" Type="Self.ExamTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="ExamTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExamTB_SubjectTB">
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="1" />
+          <End Role="ExamTB" Type="Self.ExamTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTB">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="ExamTB">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeesdetailsTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="FeesdetailsTB" Type="Self.FeesdetailsTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="FeesdetailsTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeesdetailsTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="FeesdetailsTB" Type="Self.FeesdetailsTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="FeesdetailsTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarksTB_ExamTB">
+          <End Role="ExamTB" Type="Self.ExamTB" Multiplicity="1" />
+          <End Role="MarksTB" Type="Self.MarksTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExamTB">
+              <PropertyRef Name="Exam_id" />
+            </Principal>
+            <Dependent Role="MarksTB">
+              <PropertyRef Name="Exam_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarksTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="MarksTB" Type="Self.MarksTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="MarksTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarksTB_SubjectTB">
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="1" />
+          <End Role="MarksTB" Type="Self.MarksTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTB">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="MarksTB">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="PaymentTB" Type="Self.PaymentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="PaymentTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="PaymentTB" Type="Self.PaymentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="PaymentTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTB_ClassTB">
+          <End Role="ClassTB" Type="Self.ClassTB" Multiplicity="1" />
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassTB">
+              <PropertyRef Name="Class_id" />
+            </Principal>
+            <Dependent Role="StudentTB">
+              <PropertyRef Name="Class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="StudentTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="SubjectTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherTB_SubjectTB">
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="1" />
+          <End Role="TeacherTB" Type="Self.TeacherTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTB">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="TeacherTB">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CMSDBModelStoreContainer">
+          <EntitySet Name="AdminTB" EntityType="Self.AdminTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceTB" EntityType="Self.AttendanceTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassTB" EntityType="Self.ClassTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseTB" EntityType="Self.CourseTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamTB" EntityType="Self.ExamTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeesdetailsTB" EntityType="Self.FeesdetailsTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GradeTB" EntityType="Self.GradeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarksTB" EntityType="Self.MarksTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoticeTB" EntityType="Self.NoticeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentTB" EntityType="Self.PaymentTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentTB" EntityType="Self.StudentTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubjectTB" EntityType="Self.SubjectTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherTB" EntityType="Self.TeacherTB" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AttendanceTB_CourseTB" Association="Self.FK_AttendanceTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTB" />
+            <End Role="AttendanceTB" EntitySet="AttendanceTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AttendanceTB_StudentTB" Association="Self.FK_AttendanceTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTB" />
+            <End Role="AttendanceTB" EntitySet="AttendanceTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExamTB_CourseTB" Association="Self.FK_ExamTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTB" />
+            <End Role="ExamTB" EntitySet="ExamTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExamTB_SubjectTB" Association="Self.FK_ExamTB_SubjectTB">
+            <End Role="SubjectTB" EntitySet="SubjectTB" />
+            <End Role="ExamTB" EntitySet="ExamTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeesdetailsTB_CourseTB" Association="Self.FK_FeesdetailsTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTB" />
+            <End Role="FeesdetailsTB" EntitySet="FeesdetailsTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeesdetailsTB_StudentTB" Association="Self.FK_FeesdetailsTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTB" />
+            <End Role="FeesdetailsTB" EntitySet="FeesdetailsTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarksTB_ExamTB" Association="Self.FK_MarksTB_ExamTB">
+            <End Role="ExamTB" EntitySet="ExamTB" />
+            <End Role="MarksTB" EntitySet="MarksTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarksTB_StudentTB" Association="Self.FK_MarksTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTB" />
+            <End Role="MarksTB" EntitySet="MarksTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarksTB_SubjectTB" Association="Self.FK_MarksTB_SubjectTB">
+            <End Role="SubjectTB" EntitySet="SubjectTB" />
+            <End Role="MarksTB" EntitySet="MarksTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentTB_CourseTB" Association="Self.FK_PaymentTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTB" />
+            <End Role="PaymentTB" EntitySet="PaymentTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentTB_StudentTB" Association="Self.FK_PaymentTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTB" />
+            <End Role="PaymentTB" EntitySet="PaymentTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTB_ClassTB" Association="Self.FK_StudentTB_ClassTB">
+            <End Role="ClassTB" EntitySet="ClassTB" />
+            <End Role="StudentTB" EntitySet="StudentTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTB_CourseTB" Association="Self.FK_StudentTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTB" />
+            <End Role="StudentTB" EntitySet="StudentTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectTB_CourseTB" Association="Self.FK_SubjectTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTB" />
+            <End Role="SubjectTB" EntitySet="SubjectTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherTB_SubjectTB" Association="Self.FK_TeacherTB_SubjectTB">
+            <End Role="SubjectTB" EntitySet="SubjectTB" />
+            <End Role="TeacherTB" EntitySet="TeacherTB" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminTB">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Admin_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Admin_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttendanceTB">
+          <Key>
+            <PropertyRef Name="Attendance_id" />
+          </Key>
+          <Property Name="Attendance_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_id" Type="Int32" Nullable="false" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Attendance_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Attendance_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CourseTB" Relationship="Self.FK_AttendanceTB_CourseTB" FromRole="AttendanceTB" ToRole="CourseTB" />
+          <NavigationProperty Name="StudentTB" Relationship="Self.FK_AttendanceTB_StudentTB" FromRole="AttendanceTB" ToRole="StudentTB" />
+        </EntityType>
+        <EntityType Name="ClassTB">
+          <Key>
+            <PropertyRef Name="Class_id" />
+          </Key>
+          <Property Name="Class_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Class_number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StudentTBs" Relationship="Self.FK_StudentTB_ClassTB" FromRole="ClassTB" ToRole="StudentTB" />
+        </EntityType>
+        <EntityType Name="CourseTB">
+          <Key>
+            <PropertyRef Name="Course_id" />
+          </Key>
+          <Property Name="Course_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_fees" Type="Int32" Nullable="false" />
+          <Property Name="Course_duration" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AttendanceTBs" Relationship="Self.FK_AttendanceTB_CourseTB" FromRole="CourseTB" ToRole="AttendanceTB" />
+          <NavigationProperty Name="ExamTBs" Relationship="Self.FK_ExamTB_CourseTB" FromRole="CourseTB" ToRole="ExamTB" />
+          <NavigationProperty Name="FeesdetailsTBs" Relationship="Self.FK_FeesdetailsTB_CourseTB" FromRole="CourseTB" ToRole="FeesdetailsTB" />
+          <NavigationProperty Name="PaymentTBs" Relationship="Self.FK_PaymentTB_CourseTB" FromRole="CourseTB" ToRole="PaymentTB" />
+          <NavigationProperty Name="StudentTBs" Relationship="Self.FK_StudentTB_CourseTB" FromRole="CourseTB" ToRole="StudentTB" />
+          <NavigationProperty Name="SubjectTBs" Relationship="Self.FK_SubjectTB_CourseTB" FromRole="CourseTB" ToRole="SubjectTB" />
+        </EntityType>
+        <EntityType Name="ExamTB">
+          <Key>
+            <PropertyRef Name="Exam_id" />
+          </Key>
+          <Property Name="Exam_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Subject_id" Type="Int32" Nullable="false" />
+          <Property Name="Exam_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Exam_comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CourseTB" Relationship="Self.FK_ExamTB_CourseTB" FromRole="ExamTB" ToRole="CourseTB" />
+          <NavigationProperty Name="SubjectTB" Relationship="Self.FK_ExamTB_SubjectTB" FromRole="ExamTB" ToRole="SubjectTB" />
+          <NavigationProperty Name="MarksTBs" Relationship="Self.FK_MarksTB_ExamTB" FromRole="ExamTB" ToRole="MarksTB" />
+        </EntityType>
+        <EntityType Name="FeesdetailsTB">
+          <Key>
+            <PropertyRef Name="Fees_id" />
+          </Key>
+          <Property Name="Fees_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_id" Type="Int32" Nullable="false" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Obtained_fees" Type="Int32" Nullable="false" />
+          <Property Name="Total_fees" Type="Int32" Nullable="false" />
+          <Property Name="Remaining_fees" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CourseTB" Relationship="Self.FK_FeesdetailsTB_CourseTB" FromRole="FeesdetailsTB" ToRole="CourseTB" />
+          <NavigationProperty Name="StudentTB" Relationship="Self.FK_FeesdetailsTB_StudentTB" FromRole="FeesdetailsTB" ToRole="StudentTB" />
+        </EntityType>
+        <EntityType Name="GradeTB">
+          <Key>
+            <PropertyRef Name="Grade_id" />
+          </Key>
+          <Property Name="Grade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Grade_name" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grade_from" Type="Int32" Nullable="false" />
+          <Property Name="Grade_upto" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarksTB">
+          <Key>
+            <PropertyRef Name="Marks_id" />
+          </Key>
+          <Property Name="Marks_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_id" Type="Int32" Nullable="false" />
+          <Property Name="Subject_id" Type="Int32" Nullable="false" />
+          <Property Name="Exam_id" Type="Int32" Nullable="false" />
+          <Property Name="Total_marks" Type="Int32" Nullable="false" />
+          <Property Name="Obtained_marks" Type="Int32" Nullable="false" />
+          <Property Name="Attendance_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ExamTB" Relationship="Self.FK_MarksTB_ExamTB" FromRole="MarksTB" ToRole="ExamTB" />
+          <NavigationProperty Name="StudentTB" Relationship="Self.FK_MarksTB_StudentTB" FromRole="MarksTB" ToRole="StudentTB" />
+          <NavigationProperty Name="SubjectTB" Relationship="Self.FK_MarksTB_SubjectTB" FromRole="MarksTB" ToRole="SubjectTB" />
+        </EntityType>
+        <EntityType Name="NoticeTB">
+          <Key>
+            <PropertyRef Name="Notice_id" />
+          </Key>
+          <Property Name="Notice_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Notice_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Notice_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Notice_createdate" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Notice_expiredate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="PaymentTB">
+          <Key>
+            <PropertyRef Name="Payment_id" />
+          </Key>
+          <Property Name="Payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_id" Type="Int32" Nullable="false" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Payment_amount" Type="Int32" Nullable="false" />
+          <Property Name="Payment_date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="CourseTB" Relationship="Self.FK_PaymentTB_CourseTB" FromRole="PaymentTB" ToRole="CourseTB" />
+          <NavigationProperty Name="StudentTB" Relationship="Self.FK_PaymentTB_StudentTB" FromRole="PaymentTB" ToRole="StudentTB" />
+        </EntityType>
+        <EntityType Name="StudentTB">
+          <Key>
+            <PropertyRef Name="Student_id" />
+          </Key>
+          <Property Name="Student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Class_id" Type="Int32" Nullable="false" />
+          <Property Name="Student_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_fathername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Student_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_joiningdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Student_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Student_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AttendanceTBs" Relationship="Self.FK_AttendanceTB_StudentTB" FromRole="StudentTB" ToRole="AttendanceTB" />
+          <NavigationProperty Name="ClassTB" Relationship="Self.FK_StudentTB_ClassTB" FromRole="StudentTB" ToRole="ClassTB" />
+          <NavigationProperty Name="CourseTB" Relationship="Self.FK_StudentTB_CourseTB" FromRole="StudentTB" ToRole="CourseTB" />
+          <NavigationProperty Name="FeesdetailsTBs" Relationship="Self.FK_FeesdetailsTB_StudentTB" FromRole="StudentTB" ToRole="FeesdetailsTB" />
+          <NavigationProperty Name="MarksTBs" Relationship="Self.FK_MarksTB_StudentTB" FromRole="StudentTB" ToRole="MarksTB" />
+          <NavigationProperty Name="PaymentTBs" Relationship="Self.FK_PaymentTB_StudentTB" FromRole="StudentTB" ToRole="PaymentTB" />
+        </EntityType>
+        <EntityType Name="SubjectTB">
+          <Key>
+            <PropertyRef Name="Subject_id" />
+          </Key>
+          <Property Name="Subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CourseTB" Relationship="Self.FK_SubjectTB_CourseTB" FromRole="SubjectTB" ToRole="CourseTB" />
+          <NavigationProperty Name="ExamTBs" Relationship="Self.FK_ExamTB_SubjectTB" FromRole="SubjectTB" ToRole="ExamTB" />
+          <NavigationProperty Name="MarksTBs" Relationship="Self.FK_MarksTB_SubjectTB" FromRole="SubjectTB" ToRole="MarksTB" />
+          <NavigationProperty Name="TeacherTBs" Relationship="Self.FK_TeacherTB_SubjectTB" FromRole="SubjectTB" ToRole="TeacherTB" />
+        </EntityType>
+        <EntityType Name="TeacherTB">
+          <Key>
+            <PropertyRef Name="Teacher_id" />
+          </Key>
+          <Property Name="Teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject_id" Type="Int32" Nullable="false" />
+          <Property Name="Teacher_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teacher_birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Teacher_joiningdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Teacher_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SubjectTB" Relationship="Self.FK_TeacherTB_SubjectTB" FromRole="TeacherTB" ToRole="SubjectTB" />
+        </EntityType>
+        <Association Name="FK_AttendanceTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="AttendanceTB" Type="Self.AttendanceTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="AttendanceTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AttendanceTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="AttendanceTB" Type="Self.AttendanceTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="AttendanceTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTB_ClassTB">
+          <End Role="ClassTB" Type="Self.ClassTB" Multiplicity="1" />
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassTB">
+              <PropertyRef Name="Class_id" />
+            </Principal>
+            <Dependent Role="StudentTB">
+              <PropertyRef Name="Class_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExamTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="ExamTB" Type="Self.ExamTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="ExamTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeesdetailsTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="FeesdetailsTB" Type="Self.FeesdetailsTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="FeesdetailsTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="PaymentTB" Type="Self.PaymentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="PaymentTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="StudentTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectTB_CourseTB">
+          <End Role="CourseTB" Type="Self.CourseTB" Multiplicity="1" />
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseTB">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="SubjectTB">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExamTB_SubjectTB">
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="1" />
+          <End Role="ExamTB" Type="Self.ExamTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTB">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="ExamTB">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarksTB_ExamTB">
+          <End Role="ExamTB" Type="Self.ExamTB" Multiplicity="1" />
+          <End Role="MarksTB" Type="Self.MarksTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExamTB">
+              <PropertyRef Name="Exam_id" />
+            </Principal>
+            <Dependent Role="MarksTB">
+              <PropertyRef Name="Exam_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeesdetailsTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="FeesdetailsTB" Type="Self.FeesdetailsTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="FeesdetailsTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarksTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="MarksTB" Type="Self.MarksTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="MarksTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarksTB_SubjectTB">
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="1" />
+          <End Role="MarksTB" Type="Self.MarksTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTB">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="MarksTB">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentTB_StudentTB">
+          <End Role="StudentTB" Type="Self.StudentTB" Multiplicity="1" />
+          <End Role="PaymentTB" Type="Self.PaymentTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentTB">
+              <PropertyRef Name="Student_id" />
+            </Principal>
+            <Dependent Role="PaymentTB">
+              <PropertyRef Name="Student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherTB_SubjectTB">
+          <End Role="SubjectTB" Type="Self.SubjectTB" Multiplicity="1" />
+          <End Role="TeacherTB" Type="Self.TeacherTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectTB">
+              <PropertyRef Name="Subject_id" />
+            </Principal>
+            <Dependent Role="TeacherTB">
+              <PropertyRef Name="Subject_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CMSDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminTBs" EntityType="Self.AdminTB" />
+          <EntitySet Name="AttendanceTBs" EntityType="Self.AttendanceTB" />
+          <EntitySet Name="ClassTBs" EntityType="Self.ClassTB" />
+          <EntitySet Name="CourseTBs" EntityType="Self.CourseTB" />
+          <EntitySet Name="ExamTBs" EntityType="Self.ExamTB" />
+          <EntitySet Name="FeesdetailsTBs" EntityType="Self.FeesdetailsTB" />
+          <EntitySet Name="GradeTBs" EntityType="Self.GradeTB" />
+          <EntitySet Name="MarksTBs" EntityType="Self.MarksTB" />
+          <EntitySet Name="NoticeTBs" EntityType="Self.NoticeTB" />
+          <EntitySet Name="PaymentTBs" EntityType="Self.PaymentTB" />
+          <EntitySet Name="StudentTBs" EntityType="Self.StudentTB" />
+          <EntitySet Name="SubjectTBs" EntityType="Self.SubjectTB" />
+          <EntitySet Name="TeacherTBs" EntityType="Self.TeacherTB" />
+          <AssociationSet Name="FK_AttendanceTB_CourseTB" Association="Self.FK_AttendanceTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTBs" />
+            <End Role="AttendanceTB" EntitySet="AttendanceTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AttendanceTB_StudentTB" Association="Self.FK_AttendanceTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTBs" />
+            <End Role="AttendanceTB" EntitySet="AttendanceTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTB_ClassTB" Association="Self.FK_StudentTB_ClassTB">
+            <End Role="ClassTB" EntitySet="ClassTBs" />
+            <End Role="StudentTB" EntitySet="StudentTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExamTB_CourseTB" Association="Self.FK_ExamTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTBs" />
+            <End Role="ExamTB" EntitySet="ExamTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeesdetailsTB_CourseTB" Association="Self.FK_FeesdetailsTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTBs" />
+            <End Role="FeesdetailsTB" EntitySet="FeesdetailsTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentTB_CourseTB" Association="Self.FK_PaymentTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTBs" />
+            <End Role="PaymentTB" EntitySet="PaymentTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentTB_CourseTB" Association="Self.FK_StudentTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTBs" />
+            <End Role="StudentTB" EntitySet="StudentTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectTB_CourseTB" Association="Self.FK_SubjectTB_CourseTB">
+            <End Role="CourseTB" EntitySet="CourseTBs" />
+            <End Role="SubjectTB" EntitySet="SubjectTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExamTB_SubjectTB" Association="Self.FK_ExamTB_SubjectTB">
+            <End Role="SubjectTB" EntitySet="SubjectTBs" />
+            <End Role="ExamTB" EntitySet="ExamTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarksTB_ExamTB" Association="Self.FK_MarksTB_ExamTB">
+            <End Role="ExamTB" EntitySet="ExamTBs" />
+            <End Role="MarksTB" EntitySet="MarksTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeesdetailsTB_StudentTB" Association="Self.FK_FeesdetailsTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTBs" />
+            <End Role="FeesdetailsTB" EntitySet="FeesdetailsTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarksTB_StudentTB" Association="Self.FK_MarksTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTBs" />
+            <End Role="MarksTB" EntitySet="MarksTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarksTB_SubjectTB" Association="Self.FK_MarksTB_SubjectTB">
+            <End Role="SubjectTB" EntitySet="SubjectTBs" />
+            <End Role="MarksTB" EntitySet="MarksTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentTB_StudentTB" Association="Self.FK_PaymentTB_StudentTB">
+            <End Role="StudentTB" EntitySet="StudentTBs" />
+            <End Role="PaymentTB" EntitySet="PaymentTBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherTB_SubjectTB" Association="Self.FK_TeacherTB_SubjectTB">
+            <End Role="SubjectTB" EntitySet="SubjectTBs" />
+            <End Role="TeacherTB" EntitySet="TeacherTBs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMSDBModelStoreContainer" CdmEntityContainer="CMSDBEntities">
+          <EntitySetMapping Name="AdminTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.AdminTB">
+              <MappingFragment StoreEntitySet="AdminTB">
+                <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
+                <ScalarProperty Name="Admin_name" ColumnName="Admin_name" />
+                <ScalarProperty Name="Admin_email" ColumnName="Admin_email" />
+                <ScalarProperty Name="Admin_password" ColumnName="Admin_password" />
+                <ScalarProperty Name="Admin_image" ColumnName="Admin_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.AttendanceTB">
+              <MappingFragment StoreEntitySet="AttendanceTB">
+                <ScalarProperty Name="Attendance_id" ColumnName="Attendance_id" />
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Attendance_status" ColumnName="Attendance_status" />
+                <ScalarProperty Name="Attendance_date" ColumnName="Attendance_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.ClassTB">
+              <MappingFragment StoreEntitySet="ClassTB">
+                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+                <ScalarProperty Name="Class_number" ColumnName="Class_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.CourseTB">
+              <MappingFragment StoreEntitySet="CourseTB">
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Course_name" ColumnName="Course_name" />
+                <ScalarProperty Name="Course_fees" ColumnName="Course_fees" />
+                <ScalarProperty Name="Course_duration" ColumnName="Course_duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExamTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.ExamTB">
+              <MappingFragment StoreEntitySet="ExamTB">
+                <ScalarProperty Name="Exam_id" ColumnName="Exam_id" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+                <ScalarProperty Name="Exam_date" ColumnName="Exam_date" />
+                <ScalarProperty Name="Exam_comment" ColumnName="Exam_comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeesdetailsTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.FeesdetailsTB">
+              <MappingFragment StoreEntitySet="FeesdetailsTB">
+                <ScalarProperty Name="Fees_id" ColumnName="Fees_id" />
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Obtained_fees" ColumnName="Obtained_fees" />
+                <ScalarProperty Name="Total_fees" ColumnName="Total_fees" />
+                <ScalarProperty Name="Remaining_fees" ColumnName="Remaining_fees" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GradeTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.GradeTB">
+              <MappingFragment StoreEntitySet="GradeTB">
+                <ScalarProperty Name="Grade_id" ColumnName="Grade_id" />
+                <ScalarProperty Name="Grade_name" ColumnName="Grade_name" />
+                <ScalarProperty Name="Grade_from" ColumnName="Grade_from" />
+                <ScalarProperty Name="Grade_upto" ColumnName="Grade_upto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarksTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.MarksTB">
+              <MappingFragment StoreEntitySet="MarksTB">
+                <ScalarProperty Name="Marks_id" ColumnName="Marks_id" />
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+                <ScalarProperty Name="Exam_id" ColumnName="Exam_id" />
+                <ScalarProperty Name="Total_marks" ColumnName="Total_marks" />
+                <ScalarProperty Name="Obtained_marks" ColumnName="Obtained_marks" />
+                <ScalarProperty Name="Attendance_status" ColumnName="Attendance_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoticeTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.NoticeTB">
+              <MappingFragment StoreEntitySet="NoticeTB">
+                <ScalarProperty Name="Notice_id" ColumnName="Notice_id" />
+                <ScalarProperty Name="Notice_title" ColumnName="Notice_title" />
+                <ScalarProperty Name="Notice_description" ColumnName="Notice_description" />
+                <ScalarProperty Name="Notice_createdate" ColumnName="Notice_createdate" />
+                <ScalarProperty Name="Notice_expiredate" ColumnName="Notice_expiredate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.PaymentTB">
+              <MappingFragment StoreEntitySet="PaymentTB">
+                <ScalarProperty Name="Payment_id" ColumnName="Payment_id" />
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Payment_amount" ColumnName="Payment_amount" />
+                <ScalarProperty Name="Payment_date" ColumnName="Payment_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.StudentTB">
+              <MappingFragment StoreEntitySet="StudentTB">
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+                <ScalarProperty Name="Student_surname" ColumnName="Student_surname" />
+                <ScalarProperty Name="Student_name" ColumnName="Student_name" />
+                <ScalarProperty Name="Student_fathername" ColumnName="Student_fathername" />
+                <ScalarProperty Name="Student_birthdate" ColumnName="Student_birthdate" />
+                <ScalarProperty Name="Student_email" ColumnName="Student_email" />
+                <ScalarProperty Name="Student_mobile" ColumnName="Student_mobile" />
+                <ScalarProperty Name="Student_joiningdate" ColumnName="Student_joiningdate" />
+                <ScalarProperty Name="Student_gender" ColumnName="Student_gender" />
+                <ScalarProperty Name="Student_address" ColumnName="Student_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubjectTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.SubjectTB">
+              <MappingFragment StoreEntitySet="SubjectTB">
+                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Subject_name" ColumnName="Subject_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherTBs">
+            <EntityTypeMapping TypeName="CMSDBModel.TeacherTB">
+              <MappingFragment StoreEntitySet="TeacherTB">
+                <ScalarProperty Name="Teacher_id" ColumnName="Teacher_id" />
+                <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+                <ScalarProperty Name="Teacher_name" ColumnName="Teacher_name" />
+                <ScalarProperty Name="Teacher_email" ColumnName="Teacher_email" />
+                <ScalarProperty Name="Teacher_mobile" ColumnName="Teacher_mobile" />
+                <ScalarProperty Name="Teacher_gender" ColumnName="Teacher_gender" />
+                <ScalarProperty Name="Teacher_birthdate" ColumnName="Teacher_birthdate" />
+                <ScalarProperty Name="Teacher_joiningdate" ColumnName="Teacher_joiningdate" />
+                <ScalarProperty Name="Teacher_address" ColumnName="Teacher_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

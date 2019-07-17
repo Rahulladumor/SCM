@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CMSDBModelStoreContainer" CdmEntityContainer="CMSDBEntities">
+    <EntitySetMapping Name="AdminTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.AdminTB">
+        <MappingFragment StoreEntitySet="AdminTB">
+          <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
+          <ScalarProperty Name="Admin_name" ColumnName="Admin_name" />
+          <ScalarProperty Name="Admin_email" ColumnName="Admin_email" />
+          <ScalarProperty Name="Admin_password" ColumnName="Admin_password" />
+          <ScalarProperty Name="Admin_image" ColumnName="Admin_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.AttendanceTB">
+        <MappingFragment StoreEntitySet="AttendanceTB">
+          <ScalarProperty Name="Attendance_id" ColumnName="Attendance_id" />
+          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Attendance_status" ColumnName="Attendance_status" />
+          <ScalarProperty Name="Attendance_date" ColumnName="Attendance_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.ClassTB">
+        <MappingFragment StoreEntitySet="ClassTB">
+          <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+          <ScalarProperty Name="Class_number" ColumnName="Class_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.CourseTB">
+        <MappingFragment StoreEntitySet="CourseTB">
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Course_name" ColumnName="Course_name" />
+          <ScalarProperty Name="Course_fees" ColumnName="Course_fees" />
+          <ScalarProperty Name="Course_duration" ColumnName="Course_duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.ExamTB">
+        <MappingFragment StoreEntitySet="ExamTB">
+          <ScalarProperty Name="Exam_id" ColumnName="Exam_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+          <ScalarProperty Name="Exam_date" ColumnName="Exam_date" />
+          <ScalarProperty Name="Exam_comment" ColumnName="Exam_comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeesdetailsTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.FeesdetailsTB">
+        <MappingFragment StoreEntitySet="FeesdetailsTB">
+          <ScalarProperty Name="Fees_id" ColumnName="Fees_id" />
+          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Obtained_fees" ColumnName="Obtained_fees" />
+          <ScalarProperty Name="Total_fees" ColumnName="Total_fees" />
+          <ScalarProperty Name="Remaining_fees" ColumnName="Remaining_fees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GradeTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.GradeTB">
+        <MappingFragment StoreEntitySet="GradeTB">
+          <ScalarProperty Name="Grade_id" ColumnName="Grade_id" />
+          <ScalarProperty Name="Grade_name" ColumnName="Grade_name" />
+          <ScalarProperty Name="Grade_from" ColumnName="Grade_from" />
+          <ScalarProperty Name="Grade_upto" ColumnName="Grade_upto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarksTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.MarksTB">
+        <MappingFragment StoreEntitySet="MarksTB">
+          <ScalarProperty Name="Marks_id" ColumnName="Marks_id" />
+          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+          <ScalarProperty Name="Exam_id" ColumnName="Exam_id" />
+          <ScalarProperty Name="Total_marks" ColumnName="Total_marks" />
+          <ScalarProperty Name="Obtained_marks" ColumnName="Obtained_marks" />
+          <ScalarProperty Name="Attendance_status" ColumnName="Attendance_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoticeTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.NoticeTB">
+        <MappingFragment StoreEntitySet="NoticeTB">
+          <ScalarProperty Name="Notice_id" ColumnName="Notice_id" />
+          <ScalarProperty Name="Notice_title" ColumnName="Notice_title" />
+          <ScalarProperty Name="Notice_description" ColumnName="Notice_description" />
+          <ScalarProperty Name="Notice_createdate" ColumnName="Notice_createdate" />
+          <ScalarProperty Name="Notice_expiredate" ColumnName="Notice_expiredate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.PaymentTB">
+        <MappingFragment StoreEntitySet="PaymentTB">
+          <ScalarProperty Name="Payment_id" ColumnName="Payment_id" />
+          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Payment_amount" ColumnName="Payment_amount" />
+          <ScalarProperty Name="Payment_date" ColumnName="Payment_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.StudentTB">
+        <MappingFragment StoreEntitySet="StudentTB">
+          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+          <ScalarProperty Name="Student_surname" ColumnName="Student_surname" />
+          <ScalarProperty Name="Student_name" ColumnName="Student_name" />
+          <ScalarProperty Name="Student_fathername" ColumnName="Student_fathername" />
+          <ScalarProperty Name="Student_birthdate" ColumnName="Student_birthdate" />
+          <ScalarProperty Name="Student_email" ColumnName="Student_email" />
+          <ScalarProperty Name="Student_mobile" ColumnName="Student_mobile" />
+          <ScalarProperty Name="Student_joiningdate" ColumnName="Student_joiningdate" />
+          <ScalarProperty Name="Student_gender" ColumnName="Student_gender" />
+          <ScalarProperty Name="Student_address" ColumnName="Student_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.SubjectTB">
+        <MappingFragment StoreEntitySet="SubjectTB">
+          <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Subject_name" ColumnName="Subject_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherTBs">
+      <EntityTypeMapping TypeName="CMSDBModel.TeacherTB">
+        <MappingFragment StoreEntitySet="TeacherTB">
+          <ScalarProperty Name="Teacher_id" ColumnName="Teacher_id" />
+          <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+          <ScalarProperty Name="Teacher_name" ColumnName="Teacher_name" />
+          <ScalarProperty Name="Teacher_email" ColumnName="Teacher_email" />
+          <ScalarProperty Name="Teacher_mobile" ColumnName="Teacher_mobile" />
+          <ScalarProperty Name="Teacher_gender" ColumnName="Teacher_gender" />
+          <ScalarProperty Name="Teacher_birthdate" ColumnName="Teacher_birthdate" />
+          <ScalarProperty Name="Teacher_joiningdate" ColumnName="Teacher_joiningdate" />
+          <ScalarProperty Name="Teacher_address" ColumnName="Teacher_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="734be9a7948a4790bc8b0131e5f2193f" Name="Diagram1">
+        <EntityTypeShape EntityType="CMSDBModel.AdminTB" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.AttendanceTB" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.ClassTB" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.CourseTB" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.ExamTB" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.FeesdetailsTB" Width="1.5" PointX="6" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.GradeTB" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.MarksTB" Width="1.5" PointX="7.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.NoticeTB" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.PaymentTB" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.StudentTB" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.SubjectTB" Width="1.5" PointX="3" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSDBModel.TeacherTB" Width="1.5" PointX="5.25" PointY="29.25" IsExpanded="true" />
+        <AssociationConnector Association="CMSDBModel.FK_AttendanceTB_CourseTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_AttendanceTB_StudentTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_StudentTB_ClassTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_ExamTB_CourseTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_FeesdetailsTB_CourseTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_PaymentTB_CourseTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_StudentTB_CourseTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_SubjectTB_CourseTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_ExamTB_SubjectTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_MarksTB_ExamTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_FeesdetailsTB_StudentTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_MarksTB_StudentTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_MarksTB_SubjectTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_PaymentTB_StudentTB" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSDBModel.FK_TeacherTB_SubjectTB" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
